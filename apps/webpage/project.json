@@ -1,6 +1,6 @@
 {
-  "root": "apps/web",
-  "sourceRoot": "apps/web",
+  "root": "apps/webpage",
+  "sourceRoot": "apps/webpage",
   "projectType": "application",
   "targets": {
     "build": {
@@ -8,8 +8,8 @@
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
-        "root": "apps/web",
-        "outputPath": "dist/apps/web"
+        "root": "apps/webpage",
+        "outputPath": "dist/apps/webpage"
       },
       "configurations": {
         "development": {},
@@ -20,16 +20,16 @@
       "executor": "@nrwl/next:server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "web:build",
+        "buildTarget": "webpage:build",
         "dev": true
       },
       "configurations": {
         "development": {
-          "buildTarget": "web:build:development",
+          "buildTarget": "webpage:build:development",
           "dev": true
         },
         "production": {
-          "buildTarget": "web:build:production",
+          "buildTarget": "webpage:build:production",
           "dev": false
         }
       }
@@ -37,22 +37,14 @@
     "export": {
       "executor": "@nrwl/next:export",
       "options": {
-        "buildTarget": "web:build:production"
-      }
-    },
-    "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/web"],
-      "options": {
-        "jestConfig": "apps/web/jest.config.ts",
-        "passWithNoTests": true
+        "buildTarget": "webpage:build:production"
       }
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["apps/web/**/*.{ts,tsx,js,jsx}"]
+        "lintFilePatterns": ["apps/webpage/**/*.{ts,tsx,js,jsx}"]
       }
     }
   },
